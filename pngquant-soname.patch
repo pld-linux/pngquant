@@ -1,0 +1,12 @@
+--- pngquant-2.4.1/lib/Makefile.orig	2015-06-12 23:46:49.000000000 +0200
++++ pngquant-2.4.1/lib/Makefile	2015-06-21 15:21:49.201927767 +0200
+@@ -36,7 +36,8 @@
+ 	$(CC) -fPIC $(CFLAGS) -c $(@:.lo=.c) -o $@
+ 
+ $(SHAREDLIB): $(SHAREDOBJS)
+-	$(CC) -shared -o $@ $^ $(LDFLAGS)
++	$(CC) -shared -o $@ $^ $(LDFLAGS) -Wl,-soname,$(SHAREDLIB)
++	ln -sf $(SHAREDLIB) libimagequant.so
+ 
+ $(OBJS): $(wildcard *.h) config.mk
+ 

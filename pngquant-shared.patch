@@ -1,0 +1,33 @@
+--- pngquant-2.4.1/Makefile.orig	2015-06-21 15:34:33.361895698 +0200
++++ pngquant-2.4.1/Makefile	2015-06-21 15:34:40.398562068 +0200
+@@ -10,7 +10,7 @@
+ OBJS += $(COCOA_OBJS)
+ endif
+ 
+-STATICLIB = lib/libimagequant.a
++SHAREDLIB = lib/libimagequant.so
+ 
+ DISTFILES = *.[chm] pngquant.1 Makefile configure README.md INSTALL CHANGELOG COPYRIGHT
+ TARNAME = pngquant-$(VERSION)
+@@ -24,17 +24,17 @@
+ 
+ all: $(BIN)
+ 
+-staticlib:
+-	$(MAKE) -C lib static
++sharedlib:
++	$(MAKE) -C lib shared
+ 
+-$(STATICLIB): config.mk staticlib
++$(SHAREDLIB): config.mk sharedlib
+ 
+ $(OBJS): $(wildcard *.h) config.mk
+ 
+ rwpng_cocoa.o: rwpng_cocoa.m
+ 	$(CC) -Wno-enum-conversion -c $(CFLAGS) -o $@ $< || clang -Wno-enum-conversion -c -O3 $(CFLAGS) -o $@ $<
+ 
+-$(BIN): $(OBJS) $(STATICLIB)
++$(BIN): $(OBJS) $(SHAREDLIB)
+ 	$(CC) $^ $(LDFLAGS) -o $@
+ 
+ test: $(BIN)
