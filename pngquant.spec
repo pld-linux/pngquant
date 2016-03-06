@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# static library
-%bcond_without	gomp		# OpenMP support
+%bcond_without	openmp		# OpenMP support
 %bcond_without	lcms		# LCMS support
 %bcond_with	sse		# SSE instructions
 #
@@ -21,8 +21,8 @@ Source0:	https://pngquant.org/%{name}-%{version}-src.tar.bz2
 Patch0:		%{name}-soname.patch
 Patch1:		%{name}-shared.patch
 URL:		https://pngquant.org/
-%{?with_gomp:BuildRequires:	gcc >= 6:4.2}
-%{?with_gomp:BuildRequires:	libgomp-devel}
+%{?with_openmp:BuildRequires:	gcc >= 6:4.2}
+%{?with_openmp:BuildRequires:	libgomp-devel}
 %{?with_lcms:BuildRequires:	lcms2-devel >= 2}
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
@@ -88,7 +88,7 @@ Statyczna biblioteka libimagequant.
 	--prefix=%{_prefix} \
 	%{?with_sse:--enable-sse} \
 	%{?with_lcms:--with-lcms2} \
-	%{?with_gomp:--with-openmp}
+	%{?with_openmp:--with-openmp}
 
 %{__make} -C lib %{!?with_static_libs:shared}
 
