@@ -11,13 +11,13 @@
 Summary:	PNG converter and lossy image compressor
 Summary(pl.UTF-8):	Konwerter i stratny kompresor dla plików PNG
 Name:		pngquant
-Version:	2.6.0
+Version:	2.7.2
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://pngquant.org/releases.html
 Source0:	https://pngquant.org/%{name}-%{version}-src.tar.gz
-# Source0-md5:	54df683f87cd5bfc15b3c2764419c957
+# Source0-md5:	d0f20b42cfd79a039c6af50aebb851a0
 Patch0:		%{name}-shared.patch
 URL:		https://pngquant.org/
 %{?with_openmp:BuildRequires:	gcc >= 6:4.2}
