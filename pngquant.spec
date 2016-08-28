@@ -84,7 +84,7 @@ Statyczna biblioteka libimagequant.
 	CFLAGS="%{rpmcflags} %{rpmcppflags}" \
 	LDFLAGS="%{rpmldflags}" \
 	--prefix=%{_prefix} \
-	%{?with_sse:--enable-sse} \
+	%{__enable_disable sse} \
 	%{?with_lcms:--with-lcms2} \
 	%{?with_openmp:--with-openmp}
 
