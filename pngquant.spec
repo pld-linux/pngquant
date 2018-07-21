@@ -10,23 +10,23 @@
 Summary:	PNG converter and lossy image compressor
 Summary(pl.UTF-8):	Konwerter i stratny kompresor dla plików PNG
 Name:		pngquant
-Version:	2.11.7
+Version:	2.12.0
 Release:	1
 # some original code was on MIT-like license
 License:	GPL v3+ with MIT parts or commercial
 Group:		Libraries
 #Source0Download: https://pngquant.org/releases.html
 Source0:	https://pngquant.org/%{name}-%{version}-src.tar.gz
-# Source0-md5:	b9f509e46e0dedc541ebb24f7cf4d00e
+# Source0-md5:	6b041c05ad987049ee0e5660a9926e24
 URL:		https://pngquant.org/
 %{?with_openmp:BuildRequires:	gcc >= 6:4.2}
 %{?with_openmp:BuildRequires:	libgomp-devel}
 %{?with_lcms:BuildRequires:	lcms2-devel >= 2}
-BuildRequires:	libimagequant-devel >= 2.11
+BuildRequires:	libimagequant-devel >= 2.12
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
-Requires:	libimagequant >= 2.11
+Requires:	libimagequant >= 2.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
